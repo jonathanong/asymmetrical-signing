@@ -1,8 +1,8 @@
 'use strict'
 
+const { randomBytes, createHash } = require('crypto')
 const stringify = require('json-stringify-safe')
 const { isPlainObject } = require('lodash')
-const { randomBytes } = require('crypto')
 const secp256k1 = require('secp256k1')
 const sort = require('sorted-object')
 
@@ -21,13 +21,8 @@ exports.createPublicKey = privateKey => {
 
 exports.createMessage = data => {
   if (isPlainObject(data)) data = stringify(sort(data))
-  else if (!Buffer.isBuffer(data) && typeof data !== 'string') data = stringify(data)
-  const length = Math.ceil(Buffer.byteLength(data) / 32) * 32
-  const buffer = new Buffer(length)
-  buffer.fill(0)
-  if (Buffer.isBuffer(data)) data.copy(buffer)
-  else buffer.write(data)
-  return buffer
+  else if (Array.isArray(data)) data = stringify(data)
+  return createHash('sha256').update(data).digest()
 }
 
 exports.signMessage = (message, privateKey) => {

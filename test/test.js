@@ -86,8 +86,9 @@ describe('Asymmetrical Signing', () => {
           b: Math.random(),
           c: Math.random(),
           d: Math.random(),
-          e: Math.random(),
+          e: Math.random()
         }
+        testSigning(data)
       })
     })
 
