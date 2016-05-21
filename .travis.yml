@@ -9,3 +9,11 @@ script:
 - npm run test-cov
 - "./node_modules/.bin/codecov"
 - npm run bench
+env:
+- CXX=g++-4.8
+addons:
+  apt:
+    sources:
+    - ubuntu-toolchain-r-test
+    packages:
+    - g++-4.8
