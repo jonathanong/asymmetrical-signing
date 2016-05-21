@@ -15,6 +15,26 @@ suite('Asymmetrical Signing', () => {
   bench('sign and verify buffers', () => {
     signAndVerify(new Buffer(Math.random().toString()))
   })
+
+  bench('sign and verify objects', () => {
+    signAndVerify({
+      a: Math.random(),
+      b: Math.random(),
+      c: Math.random(),
+      d: Math.random(),
+      e: Math.random()
+    })
+  })
+
+  bench('sign and verify arrays', () => {
+    signAndVerify([
+      Math.random(),
+      Math.random(),
+      Math.random(),
+      Math.random(),
+      Math.random()
+    ])
+  })
 })
 
 function signAndVerify (data) {
