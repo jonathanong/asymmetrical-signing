@@ -7,7 +7,6 @@ sudo: false
 script:
 - npm run lint
 - npm run test-cov
-- "./node_modules/.bin/codecov"
 - npm run bench
 env:
 - CXX=g++-4.8
@@ -17,3 +16,5 @@ addons:
     - ubuntu-toolchain-r-test
     packages:
     - g++-4.8
+after_success:
+  - bash <(curl -s https://codecov.io/bash)
