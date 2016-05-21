@@ -1,18 +1,23 @@
 'use strict'
 
-const stringify = require('json-stringify-safe')
 const secp256k1 = require('secp256k1')
-const sort = require('sorted-object')
+const hash = require('object-hash')
 const crypto = require('crypto')
-const _ = require('lodash')
+
+const OBJECT_HASH_OPTIONS = {
+  algorithm: 'sha256',
+  encoding: 'buffer',
+  respectType: false,
+  unorderedArrays: false,
+}
 
 exports.createPrivateKey = () => {
-  // generate privKey
-  let privKey
+  // generate privateKey
+  let privateKey
   do {
-    privKey = crypto.randomBytes(32)
-  } while (!secp256k1.privateKeyVerify(privKey))
-  return privKey
+    privateKey = crypto.randomBytes(32)
+  } while (!secp256k1.privateKeyVerify(privateKey))
+  return privateKey
 }
 
 exports.createPublicKey = privateKey => {
@@ -20,9 +25,7 @@ exports.createPublicKey = privateKey => {
 }
 
 exports.createMessage = data => {
-  if (_.isPlainObject(data)) data = stringify(sort(data))
-  else if (Array.isArray(data)) data = stringify(data)
-  return crypto.createHash('sha256').update(data).digest()
+  return hash(data, OBJECT_HASH_OPTIONS)
 }
 
 exports.signMessage = (message, privateKey) => {
