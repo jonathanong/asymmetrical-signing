@@ -1,6 +1,6 @@
 {
   "name": "asymmetrical-signing",
-  "version": "1.0.1",
+  "version": "2.0.0",
   "description": "Asymmetrically sign any data",
   "main": "index.js",
   "scripts": {
