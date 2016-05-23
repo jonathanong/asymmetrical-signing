@@ -8,7 +8,7 @@ const OBJECT_HASH_OPTIONS = {
   algorithm: 'sha256',
   encoding: 'buffer',
   respectType: false,
-  unorderedArrays: false,
+  unorderedArrays: false
 }
 
 exports.createPrivateKey = () => {
