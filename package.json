@@ -19,7 +19,7 @@
     "secp256k1": "^3.1.0"
   },
   "devDependencies": {
-    "mocha": "^2.4.5",
+    "mocha": "^2.5.0",
     "nyc": "^6.4.4",
     "standard": "^7.1.0"
   },
