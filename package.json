@@ -14,11 +14,11 @@
   "repository": "jonathanong/asymmetrical-signing",
   "dependencies": {
     "json-stringify-safe": "^5.0.1",
-    "matcha": "^0.7.0",
     "object-hash": "^1.1.2",
     "secp256k1": "^3.1.0"
   },
   "devDependencies": {
+    "matcha": "^0.7.0",
     "mocha": "^3.0.2",
     "nyc": "^6.4.4",
     "standard": "^7.1.0"
