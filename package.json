@@ -14,7 +14,7 @@
   "repository": "jonathanong/asymmetrical-signing",
   "dependencies": {
     "json-stringify-safe": "^5.0.1",
-    "object-hash": "^1.1.2",
+    "object-hash": "^1.1.6",
     "secp256k1": "^3.1.0"
   },
   "devDependencies": {
