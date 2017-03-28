@@ -21,7 +21,7 @@
     "matcha": "^0.7.0",
     "mocha": "^3.0.2",
     "nyc": "^10.2.0",
-    "standard": "^8.6.0"
+    "standard": "^9.0.2"
   },
   "files": [
     "index.js"
